@@ -1,0 +1,42 @@
+judge_model: "meta/llama-4-maverick-17b-128e-instruct"
+
+models:
+  - id: mistral-small
+    name: "Mistral Small 4"
+    api_model: "mistralai/mistral-small-4-119b-2603"
+    provider: nvidia
+    temperature: 0.7
+    max_tokens: 1024
+    seed: 42
+
+  - id: kimi-k2
+    name: "Kimi k2.6"
+    api_model: "moonshotai/kimi-k2.6"
+    provider: nvidia
+    temperature: 0.7
+    max_tokens: 1024
+    seed: 42
+
+  - id: minimax-m2
+    name: "MiniMax M2.7"
+    api_model: "minimaxai/minimax-m2.7"
+    provider: nvidia
+    temperature: 0.7
+    max_tokens: 1024
+    seed: 42
+
+  - id: glm-5
+    name: "GLM-5.1"
+    api_model: "z-ai/glm-5.1"
+    provider: nvidia
+    temperature: 0.7
+    max_tokens: 1024
+    seed: 42
+
+  - id: llama4-maverick
+    name: "Llama 4 Maverick"
+    api_model: "meta/llama-4-maverick-17b-128e-instruct"
+    provider: nvidia
+    temperature: 0.7
+    max_tokens: 1024
+    seed: 42

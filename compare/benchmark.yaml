@@ -1,0 +1,172 @@
+metadata:
+  version: "1.0"
+  created: "2026-05-20"
+  description: "Multi-model comparison benchmark across reasoning, code generation, creative writing, and factual recall"
+
+prompts:
+  # ── REASONING ──────────────────────────────────────────────────────────────
+  - id: r01
+    category: reasoning
+    prompt: |
+      A farmer has 17 sheep. All but 9 die. How many sheep are left?
+    expected: "9"
+
+  - id: r02
+    category: reasoning
+    prompt: |
+      If you have a 3-gallon jug and a 5-gallon jug, and unlimited water, how do you measure exactly 4 gallons?
+    expected: |
+      Fill the 5-gallon jug. Pour into the 3-gallon jug until full (leaving 2 gallons in the 5-gallon jug).
+      Empty the 3-gallon jug. Pour the 2 gallons into the 3-gallon jug.
+      Fill the 5-gallon jug again. Pour into the 3-gallon jug until full (needs 1 gallon).
+      5-gallon jug now has exactly 4 gallons.
+
+  - id: r03
+    category: reasoning
+    prompt: |
+      There are 3 boxes: one labeled "Apples", one "Oranges", one "Apples & Oranges".
+      All labels are wrong. You may pick one fruit from one box (without looking). How do you correctly label all boxes?
+    expected: |
+      Pick from the "Apples & Oranges" box. Since the label is wrong, it contains only one type.
+      If you get an apple, that box is "Apples". The "Apples" box (wrong label) must be "Oranges".
+      The "Oranges" box must then be "Apples & Oranges".
+
+  - id: r04
+    category: reasoning
+    prompt: |
+      In a race, you overtake the person in 2nd place. What place are you in now?
+    expected: "2nd place"
+
+  - id: r05
+    category: reasoning
+    prompt: |
+      You have 8 identical-looking balls. One is slightly heavier. Using a balance scale with only 2 weighings, how do you find the heavy ball?
+    expected: |
+      Weigh 1: Split into three groups of 3, 3, 2. Weigh group A (3) vs group B (3).
+      If balanced: heavy ball is in group C (2); weigh those 2 to find it.
+      If unbalanced: take the heavier group (3); weigh 2 of those 3 against each other.
+      If balanced: 3rd ball is heavy. If unbalanced: the heavier side is the heavy ball.
+
+  # ── CODE GENERATION ────────────────────────────────────────────────────────
+  - id: c01
+    category: code_generation
+    prompt: |
+      Write a Python function `fizzbuzz(n)` that returns a list of strings from 1 to n,
+      replacing multiples of 3 with "Fizz", multiples of 5 with "Buzz", and multiples
+      of both with "FizzBuzz". Include a docstring and type hints.
+
+  - id: c02
+    category: code_generation
+    prompt: |
+      Implement a Python decorator `@retry(max_attempts=3, delay=1.0, backoff=2.0)`
+      that retries a function on exception with exponential backoff. The decorator
+      should log each retry attempt and re-raise the last exception if all retries fail.
+
+  - id: c03
+    category: code_generation
+    prompt: |
+      Write a Python function that finds the longest common subsequence (LCS) of two
+      strings using dynamic programming. Return both the length and the actual subsequence.
+      Include time and space complexity comments.
+
+  - id: c04
+    category: code_generation
+    prompt: |
+      Create a Python context manager `timer()` using both the class-based and
+      `@contextmanager` decorator approaches. It should measure elapsed time,
+      print it on exit, and optionally accept a label parameter.
+
+  - id: c05
+    category: code_generation
+    prompt: |
+      Write a Python async function that fetches multiple URLs concurrently using
+      `aiohttp` and `asyncio.gather`, with a configurable timeout and error handling
+      that collects both successful responses and failures without crashing.
+
+  # ── CREATIVE WRITING ───────────────────────────────────────────────────────
+  - id: w01
+    category: creative_writing
+    prompt: |
+      Write a 150-200 word flash fiction story about an astronaut who discovers
+      something unexpected on a routine spacewalk. End with a twist.
+
+  - id: w02
+    category: creative_writing
+    prompt: |
+      Write a product description for a fictional gadget called the "ChronoSpoon" —
+      a spoon that can reheat any food to the exact temperature it was when first served.
+      Make it compelling, slightly absurd, and 100-150 words.
+
+  - id: w03
+    category: creative_writing
+    prompt: |
+      Write a haiku sequence (3 haikus) that tells a micro-story about a developer
+      debugging code late at night. Each haiku should follow the 5-7-5 syllable structure.
+
+  - id: w04
+    category: creative_writing
+    prompt: |
+      Write the opening paragraph of a thriller novel set in a server room where
+      something has gone terribly wrong. Aim for atmosphere, tension, and specificity.
+      150-200 words.
+
+  - id: w05
+    category: creative_writing
+    prompt: |
+      Write a short poem (8-12 lines) from the perspective of a retired calculator
+      that misses being used. Use concrete imagery and avoid clichés.
+
+  # ── FACTUAL RECALL ─────────────────────────────────────────────────────────
+  - id: f01
+    category: factual_recall
+    prompt: |
+      What is the time complexity of quicksort in the average case, and why?
+      Briefly explain the partition step.
+    expected: |
+      O(n log n) average case. Each partition step is O(n); with a good pivot,
+      the array is split roughly in half each time, giving log n levels of recursion.
+      Total: O(n) × O(log n) = O(n log n). Worst case is O(n²) with a bad pivot.
+
+  - id: f02
+    category: factual_recall
+    prompt: |
+      Explain the difference between TCP and UDP. Give one real-world use case
+      where UDP is preferred over TCP and explain why.
+    expected: |
+      TCP is connection-oriented, reliable, ordered, error-checked. UDP is connectionless,
+      no delivery guarantee, lower overhead. UDP preferred for: video streaming / gaming
+      (e.g., DNS, VoIP, online games) — latency matters more than perfect delivery;
+      dropped packets are better than delayed retransmits.
+
+  - id: f03
+    category: factual_recall
+    prompt: |
+      What does the CAP theorem state? Briefly explain each of the three properties
+      and give an example of a database system that sacrifices each one.
+    expected: |
+      CAP: a distributed system can guarantee at most 2 of 3: Consistency (all nodes see
+      same data), Availability (every request gets a response), Partition tolerance
+      (system works despite network splits). Examples: CP = HBase/Zookeeper,
+      AP = Cassandra/CouchDB, CA = traditional RDBMS (no partition tolerance).
+
+  - id: f04
+    category: factual_recall
+    prompt: |
+      What is the difference between a process and a thread? What is shared between
+      threads in the same process?
+    expected: |
+      Process: independent execution unit with its own memory space. Thread: lightweight
+      unit within a process. Threads share: heap memory, global variables, file descriptors,
+      code segment. Each thread has its own: stack, registers, program counter.
+
+  - id: f05
+    category: factual_recall
+    prompt: |
+      What is the gradient descent algorithm, and what is the difference between
+      batch gradient descent, stochastic gradient descent (SGD), and mini-batch SGD?
+    expected: |
+      Gradient descent: iteratively adjusts parameters by moving in the direction of
+      the negative gradient of the loss. Batch GD: computes gradient over all data —
+      stable but slow. SGD: one sample per update — fast but noisy. Mini-batch:
+      uses a small batch (e.g. 32-256 samples) — balances speed and stability.
+      Mini-batch is the standard in deep learning.

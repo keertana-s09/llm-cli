@@ -1,0 +1,391 @@
+{
+  "run_id": "2026-06-18_17-02-41",
+  "benchmark_version": "1.0",
+  "benchmark_description": "Multi-model comparison benchmark across reasoning, code generation, creative writing, and factual recall",
+  "started_at": "2026-06-18T17:02:41.008567+00:00",
+  "finished_at": "2026-06-18T17:05:27.843345+00:00",
+  "models": [
+    {
+      "id": "llama4-maverick",
+      "name": "Llama 4 Maverick",
+      "api_model": "meta/llama-4-maverick-17b-128e-instruct",
+      "provider": "nvidia",
+      "temperature": 0.7,
+      "max_tokens": 1024,
+      "seed": 42
+    }
+  ],
+  "prompt_results": [
+    {
+      "prompt_id": "r01",
+      "category": "reasoning",
+      "prompt": "A farmer has 17 sheep. All but 9 die. How many sheep are left?",
+      "expected": "9",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understand the initial condition\nThe farmer starts with 17 sheep.\n\n## Step 2: Interpret the condition \"All but 9 die\"\nThe phrase \"All but 9 die\" means that 9 sheep survive, and the rest die.\n\n## Step 3: Calculate the number of sheep that are left\nTo find the number of sheep left, we need to understand that \"All but 9 die\" directly implies that 9 sheep are left alive. So, we don't need to calculate the number that died to find the number left.\n\n## Step 4: State the number of sheep left\nSince \"All but 9 die\" directly tells us that 9 sheep are left, we can directly conclude that the number of sheep left is 9.\n\nThe final answer is: $\\boxed{9}$",
+      "latency_s": 7.08,
+      "completion_tokens": 170,
+      "prompt_tokens": 29,
+      "error": null,
+      "scoring": {
+        "score": 0.5,
+        "method": "rubric",
+        "rationale": "No expected terms to compare."
+      }
+    },
+    {
+      "prompt_id": "r02",
+      "category": "reasoning",
+      "prompt": "If you have a 3-gallon jug and a 5-gallon jug, and unlimited water, how do you measure exactly 4 gallons?",
+      "expected": "Fill the 5-gallon jug. Pour into the 3-gallon jug until full (leaving 2 gallons in the 5-gallon jug).\nEmpty the 3-gallon jug. Pour the 2 gallons into the 3-gallon jug.\nFill the 5-gallon jug again. Pour into the 3-gallon jug until full (needs 1 gallon).\n5-gallon jug now has exactly 4 gallons.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understand the problem and the jugs available\nWe have a 3-gallon jug and a 5-gallon jug, and we need to measure exactly 4 gallons using these jugs and unlimited water.\n\n## Step 2: Fill the 5-gallon jug completely\nFirst, we fill the 5-gallon jug completely with water. Now, we have 5 gallons in the 5-gallon jug and 0 gallons in the 3-gallon jug.\n\n## Step 3: Pour water from the 5-gallon jug into the 3-gallon jug\nWe pour water from the 5-gallon jug into the 3-gallon jug until the 3-gallon jug is full. This leaves 5 - 3 = 2 gallons in the 5-gallon jug. Now, we have 2 gallons in the 5-gallon jug and 3 gallons in the 3-gallon jug.\n\n## Step 4: Empty the 3-gallon jug\nWe empty the 3-gallon jug. Now, we have 2 gallons in the 5-gallon jug and 0 gallons in the 3-gallon jug.\n\n## Step 5: Pour the remaining water from the 5-gallon jug into the 3-gallon jug\nWe pour the 2 gallons from the 5-gallon jug into the 3-gallon jug. Now, we have 0 gallons in the 5-gallon jug and 2 gallons in the 3-gallon jug.\n\n## Step 6: Fill the 5-gallon jug again\nWe fill the 5-gallon jug completely again. Now, we have 5 gallons in the 5-gallon jug and 2 gallons in the 3-gallon jug.\n\n## Step 7: Pour water from the 5-gallon jug into the 3-gallon jug until it's full\nWe pour water from the 5-gallon jug into the 3-gallon jug until the 3-gallon jug is full. Since the 3-gallon jug already has 2 gallons, we need to pour 1 gallon into it to fill it up. This leaves 5 - 1 = 4 gallons in the 5-gallon jug. Now, we have 4 gallons in the 5-gallon jug and 3 gallons in the 3-gallon jug.\n\n## Step 8: We have measured exactly 4 gallons\nThe 5-gallon jug now contains exactly 4 gallons of water.\n\nThe final answer is: $\\boxed{4}$",
+      "latency_s": 9.066,
+      "completion_tokens": 490,
+      "prompt_tokens": 38,
+      "error": null,
+      "scoring": {
+        "score": 0.833,
+        "method": "rubric",
+        "rationale": "Covered 10/12 expected key terms (83% coverage)"
+      }
+    },
+    {
+      "prompt_id": "r03",
+      "category": "reasoning",
+      "prompt": "There are 3 boxes: one labeled \"Apples\", one \"Oranges\", one \"Apples & Oranges\".\nAll labels are wrong. You may pick one fruit from one box (without looking). How do you correctly label all boxes?",
+      "expected": "Pick from the \"Apples & Oranges\" box. Since the label is wrong, it contains only one type.\nIf you get an apple, that box is \"Apples\". The \"Apples\" box (wrong label) must be \"Oranges\".\nThe \"Oranges\" box must then be \"Apples & Oranges\".\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understand the problem and the constraints.\nWe have 3 boxes labeled \"Apples\", \"Oranges\", and \"Apples & Oranges\". However, all the labels are incorrect. We need to figure out the correct labels by picking one fruit from one box.\n\n## Step 2: Analyze the possible contents of each box based on the given labels.\nSince all labels are wrong, the box labeled \"Apples\" cannot contain only apples, the box labeled \"Oranges\" cannot contain only oranges, and the box labeled \"Apples & Oranges\" cannot contain both apples and oranges.\n\n## Step 3: Determine the possible contents for each box.\n- The box labeled \"Apples\" could contain either \"Oranges\" or \"Apples & Oranges\".\n- The box labeled \"Oranges\" could contain either \"Apples\" or \"Apples & Oranges\".\n- The box labeled \"Apples & Oranges\" could contain either \"Apples\" or \"Oranges\".\n\n## Step 4: Choose a box to pick a fruit from to gain information.\nTo solve this, we should pick a fruit from the box labeled \"Apples & Oranges\" because it gives us the most information. If we pick from \"Apples\" or \"Oranges\", we might not be able to deduce the contents of the other boxes directly.\n\n## Step 5: Analyze the outcome of picking a fruit from the \"Apples & Oranges\" box.\nIf we pick a fruit from the \"Apples & Oranges\" box and it's an apple, then this box actually contains \"Apples\" because it can't contain \"Apples & Oranges\". Similarly, if it's an orange, then it contains \"Oranges\".\n\n## Step 6: Apply the information gained to correctly label the boxes.\nLet's say we pick an apple from the \"Apples & Oranges\" box. This means it actually contains \"Apples\". Since all labels are wrong, the box labeled \"Apples\" cannot contain \"Apples\", so it must contain \"Oranges\" or \"Apples & Oranges\". But since \"Apples & Oranges\" is actually \"Apples\", \"Apples\" must contain \"Oranges\" (because it can't contain \"Apples & Oranges\"). Thus, \"Oranges\" must contain \"Apples & Oranges\".\n\n## Step 7: Generalize the solution for both possible outcomes when picking from \"Apples & Oranges\".\n- If we pick an apple, \"Apples & Oranges\" contains \"Apples\", \"Apples\" contains \"Oranges\", and \"Oranges\" contains \"Apples & Oranges\".\n- If we pick an orange, \"Apples & Oranges\" contains \"Oranges\", \"Oranges\" contains \"Apples\", and \"Apples\" contains \"Apples & Oranges\".\n\n## Step 8: Confirm the logic is sound and applies to both scenarios.\nPicking from \"Apples & Oranges\" allows us to correctly deduce the labels. For example, picking an apple means \"Apples & Oranges\" is \"Apples\". So, \"Apples\" must be \"Oranges\" (since it can't be \"Apples\"), and \"Oranges\" must be \"Apples & Oranges\". This logic holds for picking an orange as well.\n\nThe final answer is: $\\boxed{Pick a fruit from the box labeled \"Apples & Oranges\"}$",
+      "latency_s": 11.208,
+      "completion_tokens": 711,
+      "prompt_tokens": 60,
+      "error": null,
+      "scoring": {
+        "score": 0.857,
+        "method": "rubric",
+        "rationale": "Covered 12/14 expected key terms (86% coverage)"
+      }
+    },
+    {
+      "prompt_id": "r04",
+      "category": "reasoning",
+      "prompt": "In a race, you overtake the person in 2nd place. What place are you in now?",
+      "expected": "2nd place",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "You are now in 2nd place.\n\nYou overtook the person who was in 2nd place, so you took their position. You are now in 2nd place, and the person you overtook is now in 3rd place.",
+      "latency_s": 1.148,
+      "completion_tokens": 52,
+      "prompt_tokens": 32,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "rubric",
+        "rationale": "Covered 1/1 expected key terms (100% coverage) + exact match bonus."
+      }
+    },
+    {
+      "prompt_id": "r05",
+      "category": "reasoning",
+      "prompt": "You have 8 identical-looking balls. One is slightly heavier. Using a balance scale with only 2 weighings, how do you find the heavy ball?",
+      "expected": "Weigh 1: Split into three groups of 3, 3, 2. Weigh group A (3) vs group B (3).\nIf balanced: heavy ball is in group C (2); weigh those 2 to find it.\nIf unbalanced: take the heavier group (3); weigh 2 of those 3 against each other.\nIf balanced: 3rd ball is heavy. If unbalanced: the heavier side is the heavy ball.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Divide the balls into groups to minimize the number of balls to check in each weighing.\nTo solve this problem, we start by dividing the 8 balls into three groups: two groups of 3 balls each and one group of 2 balls. This division allows us to minimize the number of balls we need to check in each step.\n\n## Step 2: Weigh the two groups of 3 balls against each other.\nWe place the two groups of 3 balls on the balance scale. If one side is heavier, then the heavy ball is among those 3 balls. If the two sides are balanced, then the heavy ball is among the 2 balls that were not weighed.\n\n## Step 3: Determine the next step based on the outcome of the first weighing.\nIf the two groups of 3 balls are not balanced, we know the heavy ball is among the 3 balls on the heavier side. We then take 2 balls from this group of 3 and weigh them against each other. If one is heavier, it's the heavy ball. If they are balanced, the remaining ball (not on the scale) is the heavy one. If the initial weighing was balanced, we weigh the 2 balls that were not on the scale against each other. The heavier one is the heavy ball.\n\n## Step 4: Execute the second weighing based on the outcome of the first weighing.\n- If the first weighing was unbalanced, we weigh 2 of the 3 balls from the heavier side. If one is heavier, it's the heavy ball. If they balance, the third ball is heavy.\n- If the first weighing was balanced, we weigh the 2 balls that were set aside. The heavier one is the heavy ball.\n\nThe final answer is: $\\boxed{3}$",
+      "latency_s": 5.202,
+      "completion_tokens": 365,
+      "prompt_tokens": 42,
+      "error": null,
+      "scoring": {
+        "score": 0.889,
+        "method": "rubric",
+        "rationale": "Covered 16/18 expected key terms (89% coverage)"
+      }
+    },
+    {
+      "prompt_id": "c01",
+      "category": "code_generation",
+      "prompt": "Write a Python function `fizzbuzz(n)` that returns a list of strings from 1 to n,\nreplacing multiples of 3 with \"Fizz\", multiples of 5 with \"Buzz\", and multiples\nof both with \"FizzBuzz\". Include a docstring and type hints.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "### FizzBuzz Function\n```python\ndef fizzbuzz(n: int) -> list[str]:\n    \"\"\"\n    Returns a list of strings from 1 to n, replacing multiples of 3 with \"Fizz\",\n    multiples of 5 with \"Buzz\", and multiples of both with \"FizzBuzz\".\n\n    Args:\n        n (int): The upper limit of the range.\n\n    Returns:\n        list[str]: A list of strings representing the FizzBuzz sequence.\n    \"\"\"\n    return [\n        \"FizzBuzz\" if i % 15 == 0\n        else \"Fizz\" if i % 3 == 0\n        else \"Buzz\" if i % 5 == 0\n        else str(i)\n        for i in range(1, n + 1)\n    ]\n\n# Example usage:\ndef main():\n    n = 20\n    print(fizzbuzz(n))\n\nif __name__ == \"__main__\":\n    main()\n```\nThis function uses a list comprehension to generate the FizzBuzz sequence. The expression `i % 15 == 0` is used instead of `i % 3 == 0 and i % 5 == 0` to check for multiples of both 3 and 5, as it is more efficient. The `main` function demonstrates how to use `fizzbuzz` with an example.",
+      "latency_s": 4.637,
+      "completion_tokens": 281,
+      "prompt_tokens": 70,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The provided Python function `fizzbuzz(n)` is accurate, well-structured, and includes a clear docstring with type hints, making it an excellent implementation of the FizzBuzz sequence.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "c02",
+      "category": "code_generation",
+      "prompt": "Implement a Python decorator `@retry(max_attempts=3, delay=1.0, backoff=2.0)`\nthat retries a function on exception with exponential backoff. The decorator\nshould log each retry attempt and re-raise the last exception if all retries fail.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "**Exponential Backoff Retry Decorator**\n=====================================\n\n### Overview\n\nThe `@retry` decorator is designed to retry a function on exception with exponential backoff. It logs each retry attempt and re-raises the last exception if all retries fail.\n\n### Implementation\n\n```python\nimport logging\nimport time\nimport functools\n\ndef retry(max_attempts=3, delay=1.0, backoff=2.0):\n    \"\"\"\n    Retry a function on exception with exponential backoff.\n\n    Args:\n        max_attempts (int, optional): Maximum number of attempts. Defaults to 3.\n        delay (float, optional): Initial delay between attempts. Defaults to 1.0.\n        backoff (float, optional): Backoff factor. Defaults to 2.0.\n\n    Returns:\n        function: Decorated function.\n    \"\"\"\n    def decorator(func):\n        @functools.wraps(func)\n        def wrapper(*args, **kwargs):\n            attempts = 0\n            last_exception = None\n            while attempts < max_attempts:\n                try:\n                    return func(*args, **kwargs)\n                except Exception as e:\n                    last_exception = e\n                    attempts += 1\n                    logging.warning(f\"Attempt {attempts} failed: {e}\")\n                    if attempts < max_attempts:\n                        sleep_time = delay * (backoff ** (attempts - 1))\n                        logging.info(f\"Retrying in {sleep_time:.2f} seconds...\")\n                        time.sleep(sleep_time)\n            if last_exception:\n                logging.error(f\"All retries failed: {last_exception}\")\n                raise last_exception\n        return wrapper\n    return decorator\n\n# Example usage\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO)\n\n    @retry(max_attempts=3, delay=1.0, backoff=2.0)\n    def flaky_function():\n        import random\n        if random.random() < 0.5:\n            raise Exception(\"Flaky error\")\n        return \"Success!\"\n\n    try:\n        print(flaky_function())\n    except Exception as e:\n        print(f\"Caught exception: {e}\")\n```\n\n### Explanation\n\n1. The `@retry` decorator takes three optional arguments: `max_attempts`, `delay`, and `backoff`.\n2. The `decorator` function is defined inside `@retry`, which takes a function `func` as an argument.\n3. The `wrapper` function is defined inside `decorator`, which wraps the original function `func`.\n4. The `wrapper` function attempts to call `func` up to `max_attempts` times, catching any exceptions that occur.\n5. If an exception occurs, the `wrapper` function logs the attempt failure and waits for an exponentially increasing amount of time before retrying.\n6. If all retries fail, the `wrapper` function logs the final exception and re-raises it.\n7. The `functools.wraps` decorator is used to preserve the original function's metadata.\n\n### Example Usage\n\nThe example code demonstrates how to use the `@retry` decorator with a flaky function that randomly raises an exception. The decorator is configured to retry the function up to 3 times with an initial delay of 1 second and a backoff factor of 2. The logging level is set to `INFO` to display the retry attempts and final exception.",
+      "latency_s": 8.443,
+      "completion_tokens": 692,
+      "prompt_tokens": 66,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The response provides a well-structured, accurate, and complete implementation of the `@retry` decorator with exponential backoff, along with a clear explanation and example usage.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "c03",
+      "category": "code_generation",
+      "prompt": "Write a Python function that finds the longest common subsequence (LCS) of two\nstrings using dynamic programming. Return both the length and the actual subsequence.\nInclude time and space complexity comments.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "**Longest Common Subsequence using Dynamic Programming**\n===========================================================\n\n### Code\n\n```python\ndef longest_common_subsequence(s1: str, s2: str) -> tuple[int, str]:\n    \"\"\"\n    Finds the longest common subsequence (LCS) of two strings using dynamic programming.\n\n    Args:\n    s1 (str): The first input string.\n    s2 (str): The second input string.\n\n    Returns:\n    tuple[int, str]: A tuple containing the length of the LCS and the actual subsequence.\n\n    Time complexity: O(m * n), where m and n are the lengths of s1 and s2, respectively.\n    Space complexity: O(m * n), for the 2D table used in dynamic programming.\n    \"\"\"\n\n    # Initialize a 2D table to store the lengths of common subsequences\n    m, n = len(s1), len(s2)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n\n    # Fill the 2D table using dynamic programming\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if s1[i - 1] == s2[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n\n    # Reconstruct the LCS from the 2D table\n    lcs = []\n    i, j = m, n\n    while i > 0 and j > 0:\n        if s1[i - 1] == s2[j - 1]:\n            lcs.append(s1[i - 1])\n            i -= 1\n            j -= 1\n        elif dp[i - 1][j] > dp[i][j - 1]:\n            i -= 1\n        else:\n            j -= 1\n\n    # Return the length and the actual LCS\n    return dp[m][n], \"\".join(reversed(lcs))\n\n\n# Example usage:\nif __name__ == \"__main__\":\n    s1 = \"AGGTAB\"\n    s2 = \"GXTXAYB\"\n    length, lcs = longest_common_subsequence(s1, s2)\n    print(f\"Length of LCS: {length}\")\n    print(f\"LCS: {lcs}\")\n```\n\n### Explanation\n\n1.  Initialize a 2D table `dp` with dimensions `(m + 1) x (n + 1)`, where `m` and `n` are the lengths of the input strings `s1` and `s2`, respectively. The extra row and column are for handling edge cases where one of the strings is empty.\n2.  Fill the `dp` table using dynamic programming. For each cell `dp[i][j]`, if `s1[i - 1]` matches `s2[j - 1]`, the length of the LCS is `dp[i - 1][j - 1] + 1`. Otherwise, it's the maximum of `dp[i - 1][j]` and `dp[i][j - 1]`.\n3.  Reconstruct the LCS by tracing back the `dp` table from the bottom-right cell to the top-left cell. When a match is found, append the character to the `lcs` list.\n4.  Return the length of the LCS (`dp[m][n]`) and the actual LCS (by joining the characters in the `lcs` list in reverse order).\n\n### Time and Space Complexity\n\n*   Time complexity: O(m \\* n), where m and n are the lengths of `s1` and `s2`, respectively. This is because we need to fill the 2D `dp` table, which has m \\* n cells.\n*   Space complexity: O(m \\* n), for the 2D `dp` table used in dynamic programming. The space required for the `lcs` list is O(min(m, n)) in the worst case, but it's dominated by the space complexity of the `dp` table.",
+      "latency_s": 12.024,
+      "completion_tokens": 882,
+      "prompt_tokens": 48,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The response provides a well-structured and accurate Python function that finds the longest common subsequence (LCS) of two strings using dynamic programming, along with clear explanations and correct time and space complexity comments.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "c04",
+      "category": "code_generation",
+      "prompt": "Create a Python context manager `timer()` using both the class-based and\n`@contextmanager` decorator approaches. It should measure elapsed time,\nprint it on exit, and optionally accept a label parameter.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Implementing a Timer Context Manager in Python\n### Overview\n\nThis response demonstrates how to create a Python context manager named `timer()` using both a class-based approach and the `@contextmanager` decorator from the `contextlib` module. The `timer()` context manager measures the elapsed time during its execution, prints it upon exit, and optionally accepts a label parameter for identification.\n\n### Class-Based Implementation\n\n```python\nimport time\nfrom contextlib import contextmanager\n\nclass Timer:\n    \"\"\"A context manager to measure and print elapsed time.\"\"\"\n    \n    def __init__(self, label=\"\"):\n        \"\"\"\n        Initializes the Timer context manager.\n\n        Args:\n            label (str, optional): Label to identify the timer. Defaults to \"\".\n        \"\"\"\n        self.label = label\n        self.start_time = None\n\n    def __enter__(self):\n        \"\"\"Starts the timer upon entering the context.\"\"\"\n        self.start_time = time.time()\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        \"\"\"Stops the timer and prints the elapsed time upon exiting the context.\"\"\"\n        elapsed_time = time.time() - self.start_time\n        label_str = f\"[{self.label}] \" if self.label else \"\"\n        print(f\"{label_str}Elapsed time: {elapsed_time:.4f} seconds\")\n\n# Example usage:\nif __name__ == \"__main__\":\n    with Timer(\"Sleeping\"):\n        time.sleep(1)\n```\n\n### Implementation Using `@contextmanager` Decorator\n\n```python\nimport time\nfrom contextlib import contextmanager\n\n@contextmanager\ndef timer(label=\"\"):\n    \"\"\"\n    A context manager to measure and print elapsed time.\n\n    Args:\n        label (str, optional): Label to identify the timer. Defaults to \"\".\n    \"\"\"\n    start_time = time.time()\n    try:\n        yield\n    finally:\n        elapsed_time = time.time() - start_time\n        label_str = f\"[{label}] \" if label else \"\"\n        print(f\"{label_str}Elapsed time: {elapsed_time:.4f} seconds\")\n\n# Example usage:\nif __name__ == \"__main__\":\n    with timer(\"Sleeping\"):\n        time.sleep(1)\n```\n\n### Key Points\n\n*   Both implementations provide a `timer()` context manager that can be used with a `with` statement.\n*   The `label` parameter is optional and is used to identify the timer in the output.\n*   The elapsed time is measured using `time.time()` and is printed with four decimal places upon exiting the context.\n*   The `@contextmanager` decorator simplifies the implementation by handling the context management logic automatically.\n\n### Choosing Between Implementations\n\n*   Use the class-based implementation when you need more control over the context management or when you want to add more attributes or methods to the context manager.\n*   Use the `@contextmanager` decorator when you prefer a more concise implementation and when the context management logic is relatively simple.",
+      "latency_s": 6.5,
+      "completion_tokens": 602,
+      "prompt_tokens": 51,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The response provides a clear and comprehensive implementation of a Python context manager 'timer()' using both class-based and '@contextmanager' decorator approaches, meeting all the requirements specified in the prompt.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "c05",
+      "category": "code_generation",
+      "prompt": "Write a Python async function that fetches multiple URLs concurrently using\n`aiohttp` and `asyncio.gather`, with a configurable timeout and error handling\nthat collects both successful responses and failures without crashing.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "### Concurrent URL Fetching with aiohttp and asyncio\n\nBelow is an example of a Python async function that fetches multiple URLs concurrently. It utilizes `aiohttp` for asynchronous HTTP requests and `asyncio.gather` to run multiple tasks concurrently. The function is designed with a configurable timeout and robust error handling that collects both successful responses and failures.\n\n#### Requirements\n\n* Python 3.7+\n* `aiohttp` library\n\n#### Code\n\n```python\nimport aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    \"\"\"Fetch a single URL.\"\"\"\n    try:\n        async with session.get(url) as response:\n            response.raise_for_status()  # Raise an exception for bad status codes\n            return await response.text()\n    except aiohttp.ClientError as e:\n        return f\"Error fetching {url}: {str(e)}\"\n\nasync def fetch_urls(urls, timeout=10):\n    \"\"\"Fetch multiple URLs concurrently with a configurable timeout.\"\"\"\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.wait_for(asyncio.gather(*tasks, return_exceptions=True), timeout=timeout)\n        return results\n\nasync def main():\n    urls = [\n        \"http://example.com\",\n        \"http://httpbin.org/status/200\",\n        \"http://httpbin.org/status/404\",  # This should raise an exception\n        \"http://non-existent-url.com\"  # This should fail due to DNS resolution\n    ]\n    \n    try:\n        results = await fetch_urls(urls, timeout=5)\n        for url, result in zip(urls, results):\n            if isinstance(result, Exception):\n                print(f\"URL: {url}, Result: Exception - {result}\")\n            else:\n                print(f\"URL: {url}, Result: {result[:20]}...\")  # Print the first 20 characters\n    except asyncio.TimeoutError:\n        print(\"Timeout occurred while fetching URLs.\")\n\n# Run the main function\nasyncio.run(main())\n```\n\n#### Explanation\n\n1. **`fetch_url` Function**: This is an async function that fetches a single URL using `aiohttp`. It handles exceptions that may occur during the request, such as network errors or bad status codes.\n\n2. **`fetch_urls` Function**: This function takes a list of URLs and an optional timeout parameter. It creates a list of tasks to fetch each URL concurrently using `asyncio.gather`. The `return_exceptions=True` argument ensures that if any task raises an exception, the exception is returned instead of being raised, allowing the function to continue without crashing.\n\n3. **`main` Function**: Demonstrates how to use `fetch_urls`. It defines a list of URLs to fetch, calls `fetch_urls` with these URLs, and then prints the results. It also handles the `asyncio.TimeoutError` that is raised if the fetching operation times out.\n\n4. **Error Handling**: The code handles errors at two levels:\n   - Within `fetch_url`, it catches `aiohttp.ClientError` to handle request-related exceptions.\n   - In `main`, it catches `asyncio.TimeoutError` to handle timeouts.\n\n5. **Timeout**: The timeout is configurable through the `timeout` parameter of `fetch_urls`. If the fetching operation takes longer than this timeout, an `asyncio.TimeoutError` is raised.",
+      "latency_s": 7.93,
+      "completion_tokens": 701,
+      "prompt_tokens": 52,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The response provides a well-structured, accurate, and complete Python async function that fetches multiple URLs concurrently using `aiohttp` and `asyncio.gather`, with a configurable timeout and robust error handling that collects both successful responses and failures without crashing.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "w01",
+      "category": "creative_writing",
+      "prompt": "Write a 150-200 word flash fiction story about an astronaut who discovers\nsomething unexpected on a routine spacewalk. End with a twist.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "As astronaut Jack floated outside the space station, he performed his routine checks with precision. The stars twinkled like diamonds against the inky blackness, and the curve of the Earth glowed a soft blue. Suddenly, his tether snagged on something protruding from the station's hull. Jack tugged, but it wouldn't budge. Curious, he investigated and found an old, rusty toolbox wedged in a maintenance panel.\n\nAs he pried it open, a yellowed notebook slipped out. The cover read \"Project Erebus\" in faded letters. Jack's eyes scanned the pages, filled with cryptic notes and diagrams. The entries dated back decades, long before the space station's construction. Intrigued, Jack continued reading, uncovering a tale of a secret mission to explore a mysterious celestial body.\n\nAs he turned the final page, a chill ran down his spine. The last entry was dated the day before his own birthday. The author's name was \"Jack Harris.\" Jack's mind reeled as he stared at his own name on the tether, now seeming like a cruel joke. He wasn't just an astronaut on a routine spacewalk \u2013 he was the mission's original pilot, and he had no memory of it.",
+      "latency_s": 3.627,
+      "completion_tokens": 257,
+      "prompt_tokens": 39,
+      "error": null,
+      "scoring": {
+        "score": 0.9,
+        "method": "llm-as-judge",
+        "rationale": "The response is an excellent, well-structured flash fiction story that effectively incorporates the required elements, including a routine spacewalk, an unexpected discovery, and a surprising twist that raises questions about the protagonist's identity and past.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "w02",
+      "category": "creative_writing",
+      "prompt": "Write a product description for a fictional gadget called the \"ChronoSpoon\" \u00e2\u20ac\u201d\na spoon that can reheat any food to the exact temperature it was when first served.\nMake it compelling, slightly absurd, and 100-150 words.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "Introducing the ChronoSpoon, the revolutionary utensil that's about to change the way you enjoy leftovers forever! This genius gadget uses advanced chrono-thermal technology to reheat your food to the exact temperature it was when first served. No more lukewarm soup or overcooked roast. Simply take a bite with the ChronoSpoon, and it will intuitively recall the original temperature of your meal, reheating it to perfection. Imagine reliving the warmth and flavors of that perfectly cooked steak or the comforting coziness of a freshly baked casserole. The ChronoSpoon is not just a spoon, it's a time machine for your taste buds. Say goodbye to the monotony of microwaved meals and hello to a world where every meal is a nostalgic delight. Upgrade your dining experience with the ChronoSpoon - because who doesn't want to relive the perfect meal?",
+      "latency_s": 2.648,
+      "completion_tokens": 177,
+      "prompt_tokens": 61,
+      "error": null,
+      "scoring": {
+        "score": 0.9,
+        "method": "llm-as-judge",
+        "rationale": "The response is compelling, slightly absurd, and within the 100-150 word limit, effectively conveying the benefits and unique value proposition of the fictional ChronoSpoon gadget.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "w03",
+      "category": "creative_writing",
+      "prompt": "Write a haiku sequence (3 haikus) that tells a micro-story about a developer\ndebugging code late at night. Each haiku should follow the 5-7-5 syllable structure.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "Here is a haiku sequence that tells a micro-story about a developer debugging code late at night:\n\nGlowing screen ablaze\nLate night coding, eyes burn bright\nCoffee's warm deceit\n\nError messages dance\nFrustration's dark, endless sea\nReason's fragile thread\n\nMoonlit code reveals\nBugs slain, dawn's pale light creeps in\nMorning's sweet reprieve",
+      "latency_s": 1.422,
+      "completion_tokens": 82,
+      "prompt_tokens": 52,
+      "error": null,
+      "scoring": {
+        "score": 1.0,
+        "method": "llm-as-judge",
+        "rationale": "The haiku sequence effectively tells a micro-story about a developer debugging code late at night, following the traditional 5-7-5 syllable structure and conveying a clear narrative arc from struggle to resolution.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "w04",
+      "category": "creative_writing",
+      "prompt": "Write the opening paragraph of a thriller novel set in a server room where\nsomething has gone terribly wrong. Aim for atmosphere, tension, and specificity.\n150-200 words.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "The air was heavy with the stench of burnt circuits and ozone as I stepped into the server room, the hum of machinery thrumming in my ears like a warning. The rows of humming racks, once a symphony of synchronized whirrs and beeps, now pulsed with an ominous discord. Flickering fluorescent lights overhead cast eerie shadows on the walls, making it seem as though the machines themselves were twisting and writhing in agony. The temperature controls had failed, and the room was sweltering, the air thick with the scent of overheated components. I could feel the sweat beading on my forehead as I scanned the room, my eyes locking onto the bank of servers that had triggered the alarm. The LED indicators on their fronts flashed a frantic Morse code, as if screaming for attention. The logs on my screen had indicated a catastrophic failure, but nothing could have prepared me for the devastation before me. Something was very wrong, and I had a feeling I was running out of time to fix it.",
+      "latency_s": 2.931,
+      "completion_tokens": 211,
+      "prompt_tokens": 45,
+      "error": null,
+      "scoring": {
+        "score": 0.9,
+        "method": "llm-as-judge",
+        "rationale": "The response effectively creates a tense and ominous atmosphere in the server room, using vivid descriptions and sensory details to convey a sense of urgency and foreboding, although it slightly exceeds the 200-word limit.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "w05",
+      "category": "creative_writing",
+      "prompt": "Write a short poem (8-12 lines) from the perspective of a retired calculator\nthat misses being used. Use concrete imagery and avoid clich\u00c3\u00a9s.",
+      "expected": null,
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "In dusty silence, I sit and decay,\nMy LCD screen dim, my keys gone gray.\nOnce I crunched numbers with swift delight,\n Illuminating totals in the morning light.\n\nMy batteries drained, my purpose lost,\nI gather dust, my functions the cost.\nI miss the touch of fingers on my keys,\nThe soft beeps that accompanied my expertise.\n\nIn a drawer, I'm stored, a relic of the past,\nForgotten, as newer models forever last.",
+      "latency_s": 1.582,
+      "completion_tokens": 97,
+      "prompt_tokens": 42,
+      "error": null,
+      "scoring": {
+        "score": 0.8,
+        "method": "llm-as-judge",
+        "rationale": "The poem effectively conveys the perspective of a retired calculator using concrete imagery and avoiding clich\u00e9s, but could be improved with more nuanced language and varied sentence structure.",
+        "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "prompt_id": "f01",
+      "category": "factual_recall",
+      "prompt": "What is the time complexity of quicksort in the average case, and why?\nBriefly explain the partition step.",
+      "expected": "O(n log n) average case. Each partition step is O(n); with a good pivot,\nthe array is split roughly in half each time, giving log n levels of recursion.\nTotal: O(n) \u00c3\u2014 O(log n) = O(n log n). Worst case is O(n\u00c2\u00b2) with a bad pivot.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understanding Quicksort and Its Average Case Time Complexity\nQuicksort is a divide-and-conquer algorithm that works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The average case time complexity of quicksort is generally considered to be O(n log n), where n is the number of elements being sorted.\n\n## Step 2: Explaining the Partition Step\nThe partition step involves rearranging the array such that all elements less than the pivot are on the left of it, and all elements greater than the pivot are on the right. This is done by iterating through the array from both ends towards the center, swapping elements as necessary to maintain the order relative to the pivot.\n\n## Step 3: Understanding Why Quicksort's Average Case is O(n log n)\nThe average case time complexity of O(n log n) arises because, on average, the partition step divides the array into two roughly equal parts. This leads to a recursive call tree of height log n, with each level of the tree involving a total of O(n) work (since the partition step takes linear time). Thus, the total time complexity is O(n) * log n = O(n log n).\n\n## Step 4: Brief Explanation of the Partition Step\nTo briefly explain the partition step: it starts with a pivot element, and uses two pointers, one at the beginning and one at the end of the array. The pointers move towards each other, swapping elements that are on the wrong side of the pivot. The process continues until the pointers meet, at which point the pivot is in its final sorted position.\n\nThe final answer is: $\\boxed{O(n log n)}$",
+      "latency_s": 5.168,
+      "completion_tokens": 361,
+      "prompt_tokens": 33,
+      "error": null,
+      "scoring": {
+        "score": 0.611,
+        "method": "rubric",
+        "rationale": "Covered 11/18 expected key terms (61% coverage)"
+      }
+    },
+    {
+      "prompt_id": "f02",
+      "category": "factual_recall",
+      "prompt": "Explain the difference between TCP and UDP. Give one real-world use case\nwhere UDP is preferred over TCP and explain why.",
+      "expected": "TCP is connection-oriented, reliable, ordered, error-checked. UDP is connectionless,\nno delivery guarantee, lower overhead. UDP preferred for: video streaming / gaming\n(e.g., DNS, VoIP, online games) \u00e2\u20ac\u201d latency matters more than perfect delivery;\ndropped packets are better than delayed retransmits.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "**TCP vs UDP: Key Differences**\n\nTCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two fundamental protocols used for data communication over the internet. The primary differences between them are:\n\n### TCP\n\n* **Connection-oriented**: Establishes a connection before data transfer\n* **Reliable**: Ensures data is delivered in the correct order and retransmits lost packets\n* **Ordered**: Guarantees data is received in the same order it was sent\n* **Flow control**: Regulates data transfer rate to prevent network congestion\n\n### UDP\n\n* **Connectionless**: No connection establishment is required before data transfer\n* **Unreliable**: Does not guarantee data delivery or order\n* **Best-effort delivery**: Makes an effort to deliver data, but does not retransmit lost packets\n* **No flow control**: Does not regulate data transfer rate\n\n### Real-World Use Case: Online Gaming (UDP Preferred)\n\nIn online gaming, UDP is often preferred over TCP due to its lower latency and tolerance for packet loss. Here's why:\n\n* **Low latency**: UDP's connectionless nature and lack of retransmission mechanisms result in faster data transfer, which is critical for real-time gaming applications where every millisecond counts.\n* **Packet loss tolerance**: Online games can often tolerate some packet loss without significant impact on the gaming experience. For example, if a few packets containing game state updates are lost, the game can continue to function, albeit with some minor inconsistencies.\n* **Prioritizing speed over reliability**: In fast-paced games, the priority is to deliver the most recent game state updates as quickly as possible, rather than ensuring every single packet is delivered reliably. UDP's best-effort delivery model aligns with this requirement.\n\n**Example:** In a multiplayer first-person shooter game, the client sends player movement updates to the server at a high frequency (e.g., 60 times per second). Using UDP, the client can send these updates without waiting for acknowledgments or retransmitting lost packets, ensuring a more responsive and immersive gaming experience.\n\nIn summary, UDP's characteristics make it a suitable choice for applications that require low latency, can tolerate some packet loss, and prioritize speed over reliability, such as online gaming.",
+      "latency_s": 6.199,
+      "completion_tokens": 448,
+      "prompt_tokens": 35,
+      "error": null,
+      "scoring": {
+        "score": 0.607,
+        "method": "rubric",
+        "rationale": "Covered 17/28 expected key terms (61% coverage)"
+      }
+    },
+    {
+      "prompt_id": "f03",
+      "category": "factual_recall",
+      "prompt": "What does the CAP theorem state? Briefly explain each of the three properties\nand give an example of a database system that sacrifices each one.",
+      "expected": "CAP: a distributed system can guarantee at most 2 of 3: Consistency (all nodes see\nsame data), Availability (every request gets a response), Partition tolerance\n(system works despite network splits). Examples: CP = HBase/Zookeeper,\nAP = Cassandra/CouchDB, CA = traditional RDBMS (no partition tolerance).\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understanding the CAP Theorem\nThe CAP theorem, also known as Brewer's CAP theorem, states that it is impossible for a distributed data storage system to simultaneously guarantee all three of the following properties: Consistency, Availability, and Partition Tolerance.\n\n## Step 2: Explaining the Three Properties\n- **Consistency**: Every read operation will see the most recent write or an error. In other words, all nodes in the system see the same data at the same time.\n- **Availability**: Every request receives a response, without guarantee that it contains the most recent version of the information. The system is always available to respond to queries.\n- **Partition Tolerance**: The system continues to function and make progress even when there are network partitions (i.e., when some nodes in the system cannot communicate with each other).\n\n## Step 3: Sacrificing Each Property with Examples\n- **Sacrificing Consistency**: A system that prioritizes Availability and Partition Tolerance over Consistency might be a distributed database that uses eventual consistency. An example is Amazon's DynamoDB (in certain configurations), which sacrifices strong consistency for higher availability and partition tolerance, allowing for temporary inconsistencies across nodes.\n- **Sacrificing Availability**: A system that prioritizes Consistency and Partition Tolerance might not always be available. An example could be a distributed transactional database like Google's Spanner, which, while highly available, can be configured to prioritize consistency. However, a more straightforward example of sacrificing availability is a traditional relational database that is not distributed; it is not partition-tolerant by design but is highly consistent and available as long as it's not partitioned. A better example for sacrificing availability in a distributed context is a system that waits for all nodes to agree before responding, which might not respond if a partition occurs.\n- **Sacrificing Partition Tolerance**: A system that is not partition-tolerant will fail or become unavailable when a network partition occurs. An example is a traditional, non-distributed relational database like MySQL running on a single server. If the network connection to the server is lost, the system is not available to clients that cannot reach it, effectively sacrificing partition tolerance for consistency and availability within its single-node \"cluster\".\n\n## Step 4: Providing Specific Examples\n- **CA (Consistency + Availability) without Partition Tolerance**: MySQL (when used in a non-distributed manner).\n- **CP (Consistency + Partition Tolerance) without Availability**: Google's Spanner or MongoDB in certain configurations that prioritize consistency.\n- **AP (Availability + Partition Tolerance) without Consistency**: Amazon DynamoDB or Cassandra, which are designed to be highly available and partition-tolerant, often at the cost of strong consistency.\n\nThe final answer is: The CAP theorem states that a distributed data storage system cannot simultaneously guarantee Consistency, Availability, and Partition Tolerance. Examples of systems that sacrifice each property include:\n- Sacrificing Consistency: DynamoDB.\n- Sacrificing Availability: Traditional single-node databases or certain configurations of distributed databases that wait for consensus.\n- Sacrificing Partition Tolerance: Traditional non-distributed relational databases like MySQL.",
+      "latency_s": 8.756,
+      "completion_tokens": 631,
+      "prompt_tokens": 38,
+      "error": null,
+      "scoring": {
+        "score": 0.692,
+        "method": "rubric",
+        "rationale": "Covered 18/26 expected key terms (69% coverage)"
+      }
+    },
+    {
+      "prompt_id": "f04",
+      "category": "factual_recall",
+      "prompt": "What is the difference between a process and a thread? What is shared between\nthreads in the same process?",
+      "expected": "Process: independent execution unit with its own memory space. Thread: lightweight\nunit within a process. Threads share: heap memory, global variables, file descriptors,\ncode segment. Each thread has its own: stack, registers, program counter.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "**Processes vs Threads**\n\nA process and a thread are two fundamental concepts in operating systems that enable concurrent execution of tasks. While they both allow for multiple tasks to run simultaneously, there are key differences between them.\n\n### Processes\n\n* A process is an independent unit of execution that has its own memory space, resources, and privileges.\n* Each process has its own program counter, stack, and local variables.\n* Processes are isolated from each other, and communication between them is more complex and typically involves inter-process communication (IPC) mechanisms like pipes, sockets, or shared memory.\n\n### Threads\n\n* A thread is a lightweight process that shares the same memory space and resources as other threads within the same process.\n* Threads have their own program counter, stack, and local variables, but they share the same memory space and resources as other threads in the same process.\n* Threads are scheduled by the operating system, just like processes, but context switching between threads is typically faster and more efficient than between processes.\n\n### Key differences\n\n1. **Memory Space**: Processes have their own separate memory space, while threads share the same memory space as other threads in the same process.\n2. **Resource Ownership**: Processes own their own resources, such as file descriptors and sockets, while threads share the resources of the parent process.\n3. **Creation and Termination**: Creating a new process is typically more expensive than creating a new thread, as it involves creating a new memory space and duplicating resources. Terminating a process is also more complex, as it involves releasing all resources owned by the process.\n4. **Communication**: Communication between processes is more complex and typically involves IPC mechanisms, while communication between threads is simpler and can be achieved through shared memory.\n\n### What is shared between threads in the same process?\n\nThreads in the same process share the following:\n\n1. **Memory Space**: All threads share the same memory space, which allows them to access the same variables and data structures.\n2. **File Descriptors**: Threads share the same file descriptors, which allows them to access the same files and sockets.\n3. **Sockets**: Threads share the same sockets, which allows them to communicate with the same network endpoints.\n4. **Process Credentials**: Threads share the same process credentials, such as user ID and group ID.\n5. **Global Variables**: Threads share the same global variables, which can be accessed and modified by any thread in the process.\n\nExample code in C that demonstrates the sharing of memory between threads:\n```c\n#include <pthread.h>\n#include <stdio.h>\n\n// Shared variable\nint counter = 0;\n\nvoid* thread_func(void* arg) {\n    for (int i = 0; i < 100000; i++) {\n        counter++;\n    }\n    return NULL;\n}\n\nint main() {\n    pthread_t thread1, thread2;\n\n    pthread_create(&thread1, NULL, thread_func, NULL);\n    pthread_create(&thread2, NULL, thread_func, NULL);\n\n    pthread_join(thread1, NULL);\n    pthread_join(thread2, NULL);\n\n    printf(\"Final counter value: %d\\n\", counter);\n\n    return 0;\n}\n```\nIn this example, two threads increment a shared counter variable, demonstrating that they share the same memory space.",
+      "latency_s": 11.909,
+      "completion_tokens": 659,
+      "prompt_tokens": 32,
+      "error": null,
+      "scoring": {
+        "score": 0.875,
+        "method": "rubric",
+        "rationale": "Covered 21/24 expected key terms (88% coverage)"
+      }
+    },
+    {
+      "prompt_id": "f05",
+      "category": "factual_recall",
+      "prompt": "What is the gradient descent algorithm, and what is the difference between\nbatch gradient descent, stochastic gradient descent (SGD), and mini-batch SGD?",
+      "expected": "Gradient descent: iteratively adjusts parameters by moving in the direction of\nthe negative gradient of the loss. Batch GD: computes gradient over all data \u00e2\u20ac\u201d\nstable but slow. SGD: one sample per update \u00e2\u20ac\u201d fast but noisy. Mini-batch:\nuses a small batch (e.g. 32-256 samples) \u00e2\u20ac\u201d balances speed and stability.\nMini-batch is the standard in deep learning.\n",
+      "model_id": "llama4-maverick",
+      "model_name": "Llama 4 Maverick",
+      "response": "## Step 1: Understanding Gradient Descent Algorithm\nThe gradient descent algorithm is a first-order optimization algorithm used to minimize the loss function in various machine learning algorithms. It works by iteratively adjusting the model's parameters in the direction of the negative gradient of the loss function, which is computed with respect to the model's parameters.\n\n## Step 2: Explaining Batch Gradient Descent\nBatch gradient descent involves computing the gradient of the loss function using the entire training dataset at once. This means that for each iteration of the gradient descent, the algorithm calculates the loss for every example in the training dataset, computes the average gradient, and then updates the model's parameters based on this average gradient. The advantage of batch gradient descent is that it is more stable and can converge to a more accurate minimum. However, it can be computationally expensive, especially for large datasets.\n\n## Step 3: Understanding Stochastic Gradient Descent (SGD)\nStochastic gradient descent, on the other hand, computes the gradient of the loss function using one example from the training dataset at a time. For each iteration, SGD randomly selects one example from the dataset, computes the loss and gradient for that example, and updates the model's parameters accordingly. SGD is faster than batch gradient descent because it requires less computation per iteration. However, the updates can be noisy, leading to a more erratic convergence path.\n\n## Step 4: Explaining Mini-Batch SGD\nMini-batch SGD is a compromise between batch gradient descent and SGD. Instead of using the entire dataset or a single example, mini-batch SGD computes the gradient using a small batch of examples (typically between 32 and 128 examples). This approach balances the stability of batch gradient descent and the efficiency of SGD. Mini-batch SGD is widely used in practice because it offers a good trade-off between computational efficiency and convergence stability.\n\n## Step 5: Comparing Batch Gradient Descent, SGD, and Mini-Batch SGD\n- **Batch Gradient Descent**: Uses the entire dataset to compute the gradient. Stable but computationally expensive.\n- **Stochastic Gradient Descent (SGD)**: Uses one example at a time. Fast but can be noisy.\n- **Mini-Batch SGD**: Uses a small batch of examples. Balances stability and efficiency.\n\n## Step 6: Conclusion\nThe choice between batch gradient descent, SGD, and mini-batch SGD depends on the specific problem, dataset size, and computational resources. Mini-batch SGD is often the preferred choice due to its balance between efficiency and stability.\n\nThe final answer is: There is no numerical answer for this problem. \n\nHowever, to follow the requested format as closely as possible, I'll provide a summary in the required format:\n\n## Step 1: Summary of Gradient Descent Variants\nGradient descent is an optimization algorithm used in machine learning.\n\n## Step 2: Key Differences\nThe main difference between batch gradient descent, SGD, and mini-batch SGD lies in the number of examples used to compute the gradient at each iteration.\n\n## Step 3: Conclusion on Variants\nBatch gradient descent uses the entire dataset, SGD uses one example, and mini-batch SGD uses a small batch.\n\nThe final answer is: $\\boxed{There is no numerical answer.}$",
+      "latency_s": 9.307,
+      "completion_tokens": 638,
+      "prompt_tokens": 39,
+      "error": null,
+      "scoring": {
+        "score": 0.621,
+        "method": "rubric",
+        "rationale": "Covered 18/29 expected key terms (62% coverage)"
+      }
+    }
+  ],
+  "judge_model": "meta/llama-4-maverick-17b-128e-instruct"
+}
